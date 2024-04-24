@@ -74,7 +74,7 @@ export const ShoppingCardProvider = ({ children }) => {
         if (searchByArticule && !searchByCategory) setFilteredItems(filterBy('BY_TITLE',items, searchByArticule))
         if (searchByCategory && !searchByArticule) setFilteredItems(filterBy('BY_CATEGORY',items, searchByCategory))
         if (!searchByCategory && !searchByArticule) setFilteredItems(filterBy(null,items, searchByCategory))
-      },[items, searchByArticule, searchByCategory])
+      },[filterBy,items, searchByArticule, searchByCategory])
 
       
 
