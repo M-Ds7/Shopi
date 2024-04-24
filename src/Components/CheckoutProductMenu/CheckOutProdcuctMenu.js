@@ -10,7 +10,7 @@ const CheckOutProdcuctMenu = () => {
     const context = useContext(ShoppingCardContext)
 
     const handleDelete = (id) => {
-        const filteredProducts = context.cartProducts.filter(product => product.id != id)
+        const filteredProducts = context.cartProducts.filter(product => product.id !== id)
         context.setCartProducts(filteredProducts)
     }
 
