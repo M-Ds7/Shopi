@@ -52,7 +52,7 @@ export const ShoppingCardProvider = ({ children }) => {
         if (searchByArticule && !searchByCategory) setFilteredItems(filterBy('BY_TITLE',items, searchByArticule))
         if (searchByCategory && !searchByArticule) setFilteredItems(filterBy('BY_CATEGORY',items, searchByCategory))
         if (!searchByCategory && !searchByArticule) setFilteredItems(filterBy(null,items, searchByCategory))
-      },[items, searchByArticule, searchByCategory])
+      },[items, searchByArticule, searchByCategory, filterBy])
 
       const filteredItemsByCategory = (items, searchByCategory) => {
         return items?.filter(item => item.category.name.toLowerCase().includes(searchByCategory.toLowerCase()))
