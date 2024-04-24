@@ -48,11 +48,11 @@ export const ShoppingCardProvider = ({ children }) => {
       }
 
       useEffect(() => {
-        if (searchByArticule && searchByCategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORYS',items, searchByArticule))
+        if (searchByArticule && searchByCategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY',items, searchByArticule))
         if (searchByArticule && !searchByCategory) setFilteredItems(filterBy('BY_TITLE',items, searchByArticule))
         if (searchByCategory && !searchByArticule) setFilteredItems(filterBy('BY_CATEGORY',items, searchByCategory))
         if (!searchByCategory && !searchByArticule) setFilteredItems(filterBy(null,items, searchByCategory))
-      }, [items, searchByArticule, searchByCategory])
+      },[items, searchByArticule, searchByCategory])
 
       const filteredItemsByCategory = (items, searchByCategory) => {
         return items?.filter(item => item.category.name.toLowerCase().includes(searchByCategory.toLowerCase()))
@@ -67,7 +67,7 @@ export const ShoppingCardProvider = ({ children }) => {
             return filteredItemsByCategory(items, searchByCategory)
         }
         
-        if(searchType === 'BY_CATEGORY_AND_CATEGORY') {
+        if(searchType === 'BY_TITLE_AND_CATEGORY') {
             return filteredItemsByCategory(items, searchByCategory).filter(item => item.category.name.toLowerCase().includes(searchByCategory.toLowerCase()))
         }
 
